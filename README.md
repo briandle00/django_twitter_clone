@@ -6,3 +6,5 @@ learn the basics of Django, but will largely be creating original
 code and updating this project as my skills grow.
 
 https://simpleisbetterthancomplex.com/series/beginners-guide/1.11/
+
+View the use case diagrams, UML diagrams, and wireframes in the wiki.
