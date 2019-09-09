@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+	<h1 style="padding-top: 1rem">Welcome to briandle00's Twitter</h1>
+	<hr>
+	<div class="row">
+		<div class="col">
+			<h2>First time?</h2>
+			<signupform method="post">
+				{% csrf_token %}
+				{% for field in signupform %}
+					<div class = "form-group">
+						{{ field }}
+					</div>
+				{% endfor %}
+				<button type="submit" class="btn btn-primary">Sign Up</button>
+			</signupform>
+		</div>
+		<div class = "col">
+			<h2>Coming back?</h2>
+			<loginform method="post">
+				{% csrf_token %}
+				{% for field in loginform %}
+					<div class = "form-group">
+						{{ field }}
+					</div>
+				{% endfor %}
+				<button type="submit" class="btn btn-primary">Login</button>
+			</loginform>
+		</div>
+	</div>
+{% endblock %}
