@@ -8,27 +8,55 @@
 	<div class="row">
 		<div class="col">
 			<h2>First time?</h2>
-			<signupform method="post">
+			<form method="post" novalidate>
 				{% csrf_token %}
+				{% if signupform.errors %}
+					{% for field in signupform %}
+						{% for error in field.errors %}
+							<div class="alert alert-danger" role="alert">
+							  {{ error }}
+							</div>
+						{% endfor %}
+					{% endfor %}
+					{% for error in signupform.non_field_errors %}
+						<div class="alert alert-danger" role="alert">
+						  {{ error }}
+						</div>
+					{% endfor %}
+				{% endif %}
 				{% for field in signupform %}
 					<div class = "form-group">
 						{{ field }}
 					</div>
 				{% endfor %}
-				<button type="submit" class="btn btn-primary">Sign Up</button>
-			</signupform>
+				<input class="btn btn-primary" type="submit" value="Sign Up" name="signupform">
+			</form>
 		</div>
 		<div class = "col">
 			<h2>Coming back?</h2>
-			<loginform method="post">
+			<form method="post" novalidate>
 				{% csrf_token %}
+				{% if loginform.errors %}
+					{% for field in loginform %}
+						{% for error in field.errors %}
+							<div class="alert alert-danger" role="alert">
+							  {{ error }}
+							</div>
+						{% endfor %}
+					{% endfor %}
+					{% for error in loginform.non_field_errors %}
+						<div class="alert alert-danger" role="alert">
+						  {{ error }}
+						</div>
+					{% endfor %}
+				{% endif %}
 				{% for field in loginform %}
 					<div class = "form-group">
 						{{ field }}
 					</div>
 				{% endfor %}
-				<button type="submit" class="btn btn-primary">Login</button>
-			</loginform>
+				<input class="btn btn-primary" type="submit" value="Log In" name="loginform">
+			</form>
 		</div>
 	</div>
 {% endblock %}

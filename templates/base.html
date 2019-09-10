@@ -22,19 +22,23 @@
 	        <a class="nav-link" href="#">Home</a>
 	      </li>
 	      {% if request.user.is_authenticated %}
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Profile</a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Account</a>
-	      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Profile</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Account
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="signout/">Sign Out</a>
+		      </li>
 	      {% else %}
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Profile</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Account</a>
-	      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Profile</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Account</a>
+		      </li>
 	      {% endif %}
 	    </ul>
 	  </div>
