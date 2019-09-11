@@ -1,5 +1,8 @@
 # django_twitter_clone
-A twitter clone using the Django web framework.
+A twitter clone using the Django web framework. It is deployed
+on Heroku at:
+
+https://briandle00-twitter-clone.herokuapp.com/
 
 I will be using the following guide that I used in the past to
 learn the basics of Django, but will largely be creating original 
