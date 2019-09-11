@@ -1,1 +1,1 @@
-web: gunicorn briandle00-twitter-clone.wsgi
+web: gunicorn django_twitter_clone.wsgi
