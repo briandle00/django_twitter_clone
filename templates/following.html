@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<center>
+		<h1>Following</h1>
+		{% for profile in following.all %}
+			<a href="/{{ profile.user.username }}/" class="btn btn-secondary">{{ profile.user.username }}</a>
+		{% endfor %}
+	</center>
+{% endblock %}
