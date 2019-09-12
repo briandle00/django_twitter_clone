@@ -4,7 +4,7 @@
   {% for tweet in tweets %}
     <center>
       <div class="card text-left text-white bg-info mb-3" style="margin-top: 2rem; width: 50rem">
-        <div class="card-header"><a href="/{{ tweet.user.username }}/" class="text-white">@{{tweet.user.username}}</a></div>
+        <div class="card-header"><a href="/profile/{{ tweet.user.username }}/" class="text-white">@{{tweet.user.username}}</a></div>
         <div class="card-body">
           <small class="card-title">{{ tweet.created_at }}</small>
           <h5 class="card-text">{{ tweet.message }}</h5>

@@ -6,7 +6,7 @@
 <div class="row" style="padding-top: 3rem">
   <div class="col-2">
     <center><img src="{% static 'img/avatar.svg' %}" alt="Profile Picture" class="rounded float-left"></center>
-    <br><center><a href="/{{ user.username }}/" class="text-dark">@{{ user.username }}</a>
+    <br><center><a href="/profile/{{ user.username }}/" class="text-dark">@{{ user.username }}</a>
     {% if request.user.username == user.username %}
       <br><a href="following/" class="btn btn-info" style="margin: 1rem">{{ user.twitterprofile.follows.count }} Following</a>
       <br><a href="followers/" class="btn btn-info">{{ user.twitterprofile.followed_by.count }} Followers</a>
@@ -29,7 +29,7 @@
           </div>
         {% endfor %}
       {% endif %}
-      <form action="/{{ request.user.username }}/" method="POST" novalidate>
+      <form action="/profile/{{ request.user.username }}/" method="POST" novalidate>
         {% csrf_token %}
         {% for field in form %}
           <div class="form-group">
@@ -43,9 +43,9 @@
     {% else %}
       <center>
         {% if request.user.twitterprofile in user.twitterprofile.followed_by.all %}
-          <a href="/{{ user.username }}/removefollow/" class="btn btn-secondary" style="margin-top: 1rem">Unfollow</a>
+          <a href="/profile/{{ user.username }}/removefollow/" class="btn btn-secondary" style="margin-top: 1rem">Unfollow</a>
         {% else %}
-          <a href="/{{ user.username }}/addfollow/" class="btn btn-primary" style="margin-top: 1rem">Follow</a>
+          <a href="/profile/{{ user.username }}/addfollow/" class="btn btn-primary" style="margin-top: 1rem">Follow</a>
         {% endif %}
         <br><a href="following/" class="btn btn-info" style="margin: 1rem">{{ user.twitterprofile.follows.count }} Following</a>
         <br><a href="followers/" class="btn btn-info">{{ user.twitterprofile.followed_by.count }} Followers</a>
@@ -60,7 +60,7 @@
     {% if user.tweets.all %}
       {% for tweet in user.tweets.all %}
         <div class="card text-white bg-info mb-3">
-          <div class="card-header"><a href="/{{ tweet.user.username }}/" class="text-white">@{{tweet.user.username}}</a></div>
+          <div class="card-header"><a href="/profile/{{ tweet.user.username }}/" class="text-white">@{{tweet.user.username}}</a></div>
           <div class="card-body">
             <small class="card-title">{{ tweet.created_at }}</small>
             <h5 class="card-text">{{ tweet.message }}</h5>
@@ -68,7 +68,11 @@
         </div>
       {% endfor %}
     {% else %}
-      Nothing is here!
+      <center>
+        <div class="alert alert-primary" role="alert">
+          Nothing is here!
+        </div>  
+      </center>
     {% endif %}
   </div>
 </div>

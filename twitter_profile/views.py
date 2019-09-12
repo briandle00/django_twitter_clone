@@ -9,7 +9,7 @@ from twitter_tweet.forms import TweetForm
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
-        return redirect('/' + request.user.username + '/')
+        return redirect('profile/' + request.user.username + '/')
     else:
         if request.method == 'POST':
             if 'signupform' in request.POST:
@@ -33,7 +33,7 @@ def home(request):
             loginform = LogInForm()
     return render(request, 'frontpage.html', {'signupform': signupform, 'loginform': loginform})
 
-def signout(request, username):
+def signout(request):
     logout(request)
     return redirect('/')
 
@@ -71,10 +71,16 @@ def followers(request, username):
 def addfollow(request, username):
     user = User.objects.get(username=username)
     request.user.twitterprofile.follows.add(user.twitterprofile)
-    return redirect('/' + user.username + '/')
+    return redirect('/profile/' + user.username + '/')
 
 @login_required
 def removefollow(request, username):
     user = User.objects.get(username=username)
     request.user.twitterprofile.follows.remove(user.twitterprofile)
-    return redirect('/' + user.username + '/')
+    return redirect('/profile/' + user.username + '/')
+
+def search(request):
+    if request.POST['username'] in [user.username for user in User.objects.all()]:
+        return redirect('/profile/' + request.POST['username'] + '/')
+    else:
+        return render(request, 'searchfail.html')

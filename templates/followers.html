@@ -4,7 +4,7 @@
 	<center>
 		<h1>Followers</h1>
 		{% for profile in followers.all %}
-			<a href="/{{ profile.user.username }}/" class="btn btn-secondary">{{ profile.user.username }}</a>
+			<a href="/profile/{{ profile.user.username }}/" class="btn btn-secondary">{{ profile.user.username }}</a>
 		{% endfor %}
 	</center>
 {% endblock %}

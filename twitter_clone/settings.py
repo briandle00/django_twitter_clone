@@ -26,7 +26,7 @@ SECRET_KEY = 'ta*-+zxu&2_x8!#j28gqs&vm#7n2v8l46q$$r&ulg))uyk85$k'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-"briandle00-twitter-clone.herokuapp.com",
+'briandle00-twitter-clone.herokuapp.com',
 ]
 
 
