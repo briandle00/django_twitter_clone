@@ -5,6 +5,7 @@ on Heroku at:
 https://briandle00-twitter-clone.herokuapp.com/
 
 To-Do:
+- Improve demo button
 - Add more account settings
 - Improve search functionality
 - Hashtags
