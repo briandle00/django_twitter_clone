@@ -5,7 +5,6 @@ on Heroku at:
 https://briandle00-twitter-clone.herokuapp.com/
 
 To-Do:
-- Improve demo button
 - Add more account settings
 - Improve search functionality
 - Hashtags
@@ -13,7 +12,7 @@ To-Do:
 - Adding profile pictures
 - Adding pictures to tweets
 
-#Credits
+# Credits
 I will be using the following guide that I used in the past to
 learn the basics of Django, but will largely be creating original 
 code and updating this project as my skills grow.
