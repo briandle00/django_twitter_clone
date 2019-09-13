@@ -4,14 +4,7 @@ on Heroku at:
 
 https://briandle00-twitter-clone.herokuapp.com/
 
-To-Do:
-- Add more account settings
-- Improve search functionality
-- Hashtags
-- Mentioning users
-- Adding profile pictures
-- Adding pictures to tweets
-
+# Credits
 I will be using the following guide that I used in the past to
 learn the basics of Django, but will largely be creating original 
 code and updating this project as my skills grow.
