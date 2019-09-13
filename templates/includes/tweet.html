@@ -1,0 +1,19 @@
+<center>
+  <div class="card text-left text-white bg-info mb-3" style="margin-top: 2rem">
+    <div class="card-header"><a href="/profile/{{ tweet.user.username }}/" class="text-white">@{{tweet.user.username}}</a></div>
+    <div class="card-body">
+      <small class="card-title">{{ tweet.created_at }}</small>
+      <h5 class="card-text">
+      	{% for word in tweet.message.split %}
+      		{% if word|first == "#" %}
+      			<a href="/hashtag/{{word|slice:'1:'}}" class="text-light">{{ word }}</a>
+      		{% elif word|first == "@" %}
+      			<a href="/mentionsearch/{{word|slice:'1:'}}" class="text-light">{{ word }}</a>
+      		{% else %}
+      			{{ word }}
+      		{% endif %}
+      	{% endfor %}
+      </h5>
+    </div>
+  </div>
+</center>

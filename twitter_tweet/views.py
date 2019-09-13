@@ -9,3 +9,7 @@ def feed(request):
         follows.append(id.user)
     tweets = TwitterTweet.objects.filter(user_id__in=follows)
     return render(request, 'feed.html', {'tweets': tweets})
+
+def hashtag(request, hashtag):
+    tweets = [(tweet) for tweet in TwitterTweet.objects.all() if "#" + hashtag in tweet.message]
+    return render(request, 'feed.html', {'tweets': tweets})

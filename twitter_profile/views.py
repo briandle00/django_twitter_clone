@@ -84,3 +84,9 @@ def search(request):
         return redirect('/profile/' + request.POST['username'] + '/')
     else:
         return render(request, 'searchfail.html')
+
+def mentionsearch(request, username):
+    if username in [user.username for user in User.objects.all()]:
+        return redirect('/profile/' + username + '/')
+    else:
+        return render(request, 'searchfail.html')
